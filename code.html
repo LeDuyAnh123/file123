@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Download File</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #download {
+      display: none;
+      margin-top: 20px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Nhập mật khẩu để tải file</h2>
+    <input type="password" id="password" placeholder="Mật khẩu" />
+    <br />
+    <button onclick="checkPassword()">Xác nhận</button>
+    <div class="error" id="error"></div>
+    <div id="download">
+      <p>✅ Mật khẩu đúng! Nhấn để tải file:</p>
+      <a href="BISKIPCCC.rar" download>
+        <button>Tải file</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correct = "///123";
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+      const download = document.getElementById("download");
+
+      if (input === correct) {
+        error.textContent = "";
+        download.style.display = "block";
+      } else {
+        error.textContent = "Sai mật khẩu!";
+        download.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
